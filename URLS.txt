@@ -1,0 +1,87 @@
+🌐 URLs d'accès aux interfaces du Web Shop
+
+═══════════════════════════════════════════════════════════════
+
+🚀 PAGE D'ACCUEIL PRINCIPALE (MODERNE)
+   http://localhost:8080/
+   → Interface Material Design (page d'accueil)
+
+═══════════════════════════════════════════════════════════════
+
+📱 INTERFACES DISPONIBLES :
+
+1️⃣ 🏠 PAGE D'ACCUEIL PRINCIPALE (RECOMMANDÉ)
+   http://localhost:8080/
+   → Interface Material Design moderne
+   → Recherche, filtres, panier interactif
+
+2️⃣ 📊 PAGE DE DÉMONSTRATION
+   http://localhost:8080/demo.html
+   → Présentation et comparaison des interfaces
+
+3️⃣ 🔧 INTERFACE POLYMER ORIGINALE
+   http://localhost:8080/material-shop.html
+   → Ancienne interface Polymer avec fallback
+   → Composants Web + interface de secours
+
+═══════════════════════════════════════════════════════════════
+
+🎯 RECOMMANDATION :
+   → Allez directement sur http://localhost:8080/ (page d'accueil moderne)
+   → Découvrez demo.html pour voir les comparaisons
+   → material-shop.html conserve l'ancienne version Polymer
+
+═══════════════════════════════════════════════════════════════
+
+📋 FONCTIONNALITÉS DISPONIBLES :
+
+🎨 MATERIAL DESIGN (PAGE PRINCIPALE) :
+   ✅ Design moderne et élégant
+   ✅ Animations fluides et transitions
+   ✅ Panier d'achat avec sidebar
+   ✅ Responsive complet (mobile/desktop)
+   ✅ Filtrage par catégories avancées
+   ✅ Notifications toast élégantes
+   ✅ Performance optimisée
+   ✅ Recherche avec autocomplétion
+   ✅ Système d'avis et commentaires
+   ✅ Comparaison de produits
+   ✅ Liste de souhaits (favoris)
+   ✅ Mode sombre/clair
+   ✅ Authentification utilisateurs
+   ✅ Système de paiement simulé
+   ✅ Analytics et monitoring
+   ✅ 162 produits dans le catalogue
+
+🔧 POLYMER ORIGINALE (FALLBACK) :
+   ✅ Composants Web natifs
+   ✅ Framework Polymer complet
+   ✅ Interface de fallback élégante
+   ✅ Gestion d'erreur des scripts
+   ✅ Navigation cross-interface
+   ✅ Responsive et accessible
+   ✅ Shadow DOM et data binding
+   ✅ Catalogue de produits complet
+
+📊 PAGE DE DÉMONSTRATION :
+   ✅ Comparaison visuelle des interfaces
+   ✅ Statistiques et métriques
+   ✅ Aperçu des fonctionnalités
+   ✅ Navigation entre versions
+
+═══════════════════════════════════════════════════════════════
+
+🔧 STATUT SERVEUR :
+   ✅ Serveur HTTP actif sur le port 8080
+   ✅ Toutes les interfaces accessibles
+   ✅ Images et ressources chargées
+   ✅ Gestion d'erreurs implémentée
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTATION :
+   → README-MATERIAL-DESIGN.md : Guide complet Material Design
+   → README.md : Documentation Polymer originale
+   → URLS.txt : Ce fichier de référence
+
+═══════════════════════════════════════════════════════════════

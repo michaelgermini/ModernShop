@@ -1,0 +1,324 @@
+/* ================================================
+   MODERN DESIGN ENHANCEMENTS - AMÉLIORATIONS VISUELLES
+   ================================================ */
+
+/* Typographie moderne */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Scrollbar moderne */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}
+
+/* Sélection de texte moderne */
+::selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+::-moz-selection {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* Focus visible pour accessibilité */
+*:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Micro-interactions avancées */
+.product-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transition: width 0.3s ease;
+}
+
+.product-card:hover .product-title::after {
+    width: 100%;
+}
+
+/* Effets de glassmorphism pour les modals */
+.wishlist-modal,
+.cart-sidebar {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animation de chargement moderne */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(102, 126, 234, 0.1);
+    border-left: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Effets de profondeur pour les cartes */
+.product-grid {
+    perspective: 1000px;
+}
+
+.product-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+/* Effets de texte avancés */
+.hero-title {
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Boutons avec effet de ripple */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Tooltips modernes */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animations de chargement pour les images */
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.product-card:hover .product-image::before {
+    left: 100%;
+}
+
+/* Effets de shadow avancés */
+.shadow-glow {
+    box-shadow:
+        0 0 20px rgba(102, 126, 234, 0.1),
+        0 0 40px rgba(102, 126, 234, 0.05),
+        0 0 80px rgba(102, 126, 234, 0.025);
+}
+
+.shadow-glow:hover {
+    box-shadow:
+        0 0 30px rgba(102, 126, 234, 0.2),
+        0 0 60px rgba(102, 126, 234, 0.1),
+        0 0 120px rgba(102, 126, 234, 0.05);
+}
+
+/* Transitions de page fluides */
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageEnter 0.6s ease-out forwards;
+}
+
+@keyframes pageEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design amélioré */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 20px;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    .add-to-cart-btn {
+        font-size: 13px;
+        padding: 12px 20px;
+    }
+}
+
+/* Mode sombre support (si implémenté plus tard) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .product-card {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+
+    .product-card:hover {
+        box-shadow: 0 25px 60px rgba(102, 126, 234, 0.3);
+    }
+}
+
+/* Performance optimisations - Optimisé pour éviter la surcharge mémoire */
+.product-card:hover,
+.add-to-cart-btn:hover,
+.category-btn:hover {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Print styles */
+@media print {
+    .product-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .add-to-cart-btn,
+    .wishlist-btn {
+        display: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .product-card {
+        border: 2px solid #000;
+    }
+
+    .add-to-cart-btn {
+        background: #000;
+        color: #fff;
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px);
+    }
+}

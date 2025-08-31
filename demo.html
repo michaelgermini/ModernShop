@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Interface Comparison</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .comparison-section {
+            padding: 60px 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .interface-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .interface-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+
+        .interface-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .interface-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .interface-content {
+            padding: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .demo-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .demo-button.secondary {
+            background: #333;
+        }
+
+        .demo-button.secondary:hover {
+            background: #555;
+        }
+
+        .buttons-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stats-section {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            min-width: 120px;
+        }
+
+        .tech-item .material-icons {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-icons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎨 Modern Shop</h1>
+            <p>Interface Comparison - Polymer vs Material Design</p>
+        </header>
+
+        <section class="comparison-section">
+            <div class="comparison-grid">
+                <div class="interface-card">
+                    <div class="interface-header">
+                        <h3>🔧 Polymer Interface</h3>
+                        <p>Web Components Technology</p>
+                    </div>
+                    <div class="interface-content">
+                        <ul class="feature-list">
+                            <li>Custom Web Components</li>
+                            <li>Modular Architecture</li>
+                            <li>Shadow DOM</li>
+                            <li>Data Binding</li>
+                            <li>Polymer CLI</li>
+                            <li>Integrated Service Worker</li>
+                        </ul>
+                        <p><strong>Advantages:</strong> Reusable components, Optimized performance</p>
+                        <p><strong>Limitations:</strong> Learning curve, Browser compatibility</p>
+                    </div>
+                </div>
+
+                <div class="interface-card">
+                    <div class="interface-header">
+                        <h3>🎨 Material Design Interface</h3>
+                        <p>Modern Design System</p>
+                    </div>
+                    <div class="interface-content">
+                        <ul class="feature-list">
+                            <li>Google Material Design</li>
+                            <li>Intuitive Interface</li>
+                            <li>Smooth Animations</li>
+                            <li>Fully Responsive</li>
+                            <li>Vanilla JavaScript</li>
+                            <li>Optimized Performance</li>
+                        </ul>
+                        <p><strong>Advantages:</strong> Modern interface, Easy maintenance, Accessibility</p>
+                        <p><strong>Limitations:</strong> Fewer predefined components</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <h2>Discover the Interfaces</h2>
+                <p>Click the buttons below to test each version</p>
+                <br>
+                <a href="index.html" class="demo-button secondary">
+                    <span class="material-icons">polymer</span>
+                    Original Polymer Interface
+                </a>
+                <a href="material-shop.html" class="demo-button">
+                    <span class="material-icons">palette</span>
+                    Material Design Interface
+                </a>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Sample Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Availability</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2>Technologies Used</h2>
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <span class="material-icons">web</span>
+                    <strong>HTML5</strong>
+                </div>
+                <div class="tech-item">
+                    <span class="material-icons">palette</span>
+                    <strong>CSS3</strong>
+                </div>
+                <div class="tech-item">
+                    <span class="material-icons">code</span>
+                    <strong>JavaScript</strong>
+                </div>
+                <div class="tech-item">
+                    <span class="material-icons">devices</span>
+                    <strong>Material Design</strong>
+                </div>
+                            <div class="tech-item">
+                <span class="material-icons">view_carousel</span>
+                <strong>Product Carousel</strong>
+            </div>
+            <div class="tech-item">
+                <span class="material-icons">speed</span>
+                <strong>PWA Ready</strong>
+            </div>
+            <div class="tech-item">
+                <span class="material-icons">accessibility</span>
+                <strong>Accessibility</strong>
+            </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Entry animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.interface-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Animation for statistics
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 30);
+            });
+        });
+    </script>
+</body>
+</html>

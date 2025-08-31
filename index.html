@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Shop - Material Design</title>
+    <meta name="description" content="Modern online shop with Material Design">
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="modern-design.css" rel="stylesheet">
+
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+            /* Header Styles - Version Améliorée */
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        color: white;
+        padding: 1.5rem 0;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo .material-icons {
+            font-size: 2.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu a:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Product Card - Version Ultra Moderne */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.25);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .product-card:active {
+            transform: translateY(-8px) scale(0.98);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: brightness(1) contrast(1);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08) rotate(1deg);
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+      line-height: 1.5;
+        }
+
+        .add-to-cart-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 50%, #e379f2 100%);
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Search and Filters */
+        .search-filters {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .search-bar {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-bar input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            cursor: pointer;
+        }
+
+        .filter-controls {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .filter-controls select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .filter-controls select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .price-range input[type="range"] {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .price-range input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .price-range input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+            /* Featured Section */
+    .featured-section {
+        margin-bottom: 3rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .featured-section h3 {
+      text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .product-carousel {
+        position: relative;
+    }
+
+    /* Categories */
+    .categories {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .category-btn {
+        background: white;
+        border: 2px solid #667eea;
+        color: #667eea;
+        padding: 12px 24px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+        background: #667eea;
+        color: white;
+    }
+
+        /* Footer avec dégradé animé */
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 20px 30px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.05)"><polygon points="0,100 1000,0 1000,100"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animations et effets spéciaux */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Animation d'entrée pour les cartes - Optimisée pour éviter les disparitions */
+        .product-card {
+            animation: slideInUp 0.8s ease-out;
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        /* ================================================
+           MATERIAL DESIGN RIPPLE EFFECTS - PHASE 1
+           ================================================ */
+
+        .ripple {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+
+        .ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ripple:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Enhanced Button Interactions */
+        .cta-button, .feature-btn, .demo-action-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0);
+        }
+
+        .cta-button::before,
+        .feature-btn::before,
+        .demo-action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease-out, height 0.4s ease-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cta-button:active::before,
+        .feature-btn:active::before,
+        .demo-action-btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button span,
+        .feature-btn span,
+        .demo-action-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Hover Effects */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateZ(0);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .product-card .product-image {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05) rotate(1deg);
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        /* Floating Animation for Icons */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { animation-delay: 0s; }
+        .feature-card:nth-child(2) .feature-icon { animation-delay: 0.5s; }
+        .feature-card:nth-child(3) .feature-icon { animation-delay: 1s; }
+        .feature-card:nth-child(4) .feature-icon { animation-delay: 1.5s; }
+        .feature-card:nth-child(5) .feature-icon { animation-delay: 2s; }
+        .feature-card:nth-child(6) .feature-icon { animation-delay: 2.5s; }
+
+        /* Pulse Animation for Stats */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .stat-number {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .stat-item:nth-child(1) .stat-number { animation-delay: 0s; }
+        .stat-item:nth-child(2) .stat-number { animation-delay: 0.5s; }
+        .stat-item:nth-child(3) .stat-number { animation-delay: 1s; }
+        .stat-item:nth-child(4) .stat-number { animation-delay: 1.5s; }
+
+        /* Enhanced Navigation */
+        .nav-menu a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transition: left 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            left: 0;
+        }
+
+        /* Staggered Animation for Feature Cards */
+        .feature-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        .feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Enhanced Category Buttons */
+        .category-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .category-btn:hover::before {
+            left: 100%;
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* ================================================
+           ANIMATED PARTICLES BACKGROUND
+           ================================================ */
+
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-particle 20s ease-in-out infinite;
+        }
+
+        .particle-1 {
+            width: 4px;
+            height: 4px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .particle-2 {
+            width: 6px;
+            height: 6px;
+            top: 20%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 30s;
+        }
+
+        .particle-3 {
+            width: 3px;
+            height: 3px;
+            top: 60%;
+            left: 20%;
+            animation-delay: 4s;
+            animation-duration: 20s;
+        }
+
+        .particle-4 {
+            width: 8px;
+            height: 8px;
+            top: 40%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 35s;
+        }
+
+        .particle-5 {
+            width: 5px;
+            height: 5px;
+            top: 80%;
+            left: 50%;
+            animation-delay: 8s;
+            animation-duration: 28s;
+        }
+
+        .particle-6 {
+            width: 7px;
+            height: 7px;
+            top: 30%;
+            left: 30%;
+            animation-delay: 10s;
+            animation-duration: 32s;
+        }
+
+        .particle-7 {
+            width: 4px;
+            height: 4px;
+            top: 70%;
+            left: 90%;
+            animation-delay: 12s;
+            animation-duration: 26s;
+        }
+
+        .particle-8 {
+            width: 6px;
+            height: 6px;
+            top: 15%;
+            left: 60%;
+            animation-delay: 14s;
+            animation-duration: 22s;
+        }
+
+        .particle-9 {
+            width: 5px;
+            height: 5px;
+            top: 85%;
+            left: 15%;
+            animation-delay: 16s;
+            animation-duration: 24s;
+        }
+
+        .particle-10 {
+            width: 7px;
+            height: 7px;
+            top: 50%;
+            left: 40%;
+            animation-delay: 18s;
+            animation-duration: 27s;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0.1;
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) scale(1.2);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-10px) translateX(-15px) scale(0.8);
+                opacity: 0.2;
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px) scale(1.1);
+                opacity: 0.4;
+            }
+        }
+
+        /* Enhanced Hero Content Positioning */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Add more sophisticated hover effects */
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            transition: all 0.3s ease;
+        }
+
+        /* Add magnetic effect to buttons */
+        .feature-btn, .cta-button {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .feature-btn:hover, .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Add subtle glow effect to active elements */
+        .category-btn.active::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(4px);
+        }
+
+        /* Enhanced image hover effects */
+        .product-image {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateZ(0);
+        }
+
+        .product-card:hover .product-image {
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Add subtle background animations */
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        /* Add loading animation for dynamic content */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Stagger loading animations */
+        .products-grid .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .products-grid .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .products-grid .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .products-grid .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .products-grid .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .products-grid .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Add micro-interactions for better UX */
+        .search-bar:focus-within {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-count {
+            animation: bounce-in 0.6s ease-out;
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .particle {
+                display: none; /* Hide particles on mobile for performance */
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .feature-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Demo Features Section Styles */
+        .demo-features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .demo-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><polygon points="0,100 1000,0 1000,100" fill="rgba(102,126,234,0.05)"/></svg>');
+            pointer-events: none;
+        }
+
+        .demo-features h2 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .demo-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102,126,234,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(102,126,234,0.2);
+            border-color: rgba(102,126,234,0.3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(102,126,234,0.3);
+        }
+
+        .feature-card h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+        }
+
+        .feature-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+        }
+
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .demo-stats .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .demo-stats .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .demo-stats .stat-label {
+            color: #666;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Hero buttons improvement */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102,126,234,0.5);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .demo-features h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><polygon points="1000,0 1000,100 0,100" fill="rgba(255,255,255,0.05)"/></svg>');
+            pointer-events: none;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .tech-item .material-icons {
+            color: #81c784;
+            font-size: 1.5rem;
+        }
+
+        .tech-item span {
+            font-weight: 500;
+        }
+
+        .demo-highlights h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .highlights-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .highlights-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            line-height: 1.6;
+        }
+
+        .highlights-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlights-list strong {
+            color: #81c784;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .demo-action-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .demo-action-btn.primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .demo-action-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .demo-action-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-action-btn.secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .demo-actions {
+                flex-direction: column;
+            }
+
+            .tech-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .product-card:nth-child(odd) {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .product-card:nth-child(even) {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        /* Animation pour les éléments importants */
+        .logo {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cart-icon {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Effets de hover avancés pour les boutons de catégorie */
+        .category-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .category-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Effets de particules pour le background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: #444;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 20px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-close {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cart-items {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-item-details h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .cart-item-price {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .cart-total {
+            background: #f8f9fa;
+            padding: 20px;
+            border-top: 2px solid #667eea;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Material Design Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+
+        .ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .ripple:active::before {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <span class="material-icons">shopping_bag</span>
+                ModernShop
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="demo.html" target="_blank">Demo Compare</a></li>
+                <li>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <span class="material-icons">shopping_cart</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+                        <div class="hero-content">
+                    <h1>🎨 Modern Shop Demo</h1>
+                    <p>Experience our fully functional Material Design e-commerce platform with advanced features like product carousel, wishlist, search, and shopping cart.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="cta-button primary ripple">🛍️ Explore Products</a>
+                        <a href="#features" class="cta-button secondary ripple">✨ View Features</a>
+                    </div>
+                </div>
+
+                <!-- Animated Particles Background -->
+                <div class="particles-container">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                    <div class="particle particle-6"></div>
+                    <div class="particle particle-7"></div>
+                    <div class="particle particle-8"></div>
+                    <div class="particle particle-9"></div>
+                    <div class="particle particle-10"></div>
+                </div>
+    </section>
+
+    <!-- Demo Features Section -->
+    <section class="demo-features" id="features">
+        <div class="container">
+            <h2>🚀 Interactive Demo Features</h2>
+            <p class="demo-subtitle">Click on the buttons below to test our e-commerce features</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">search</span>
+                    </div>
+                    <h3>🔍 Advanced Search</h3>
+                    <p>Try our real-time search with autocomplete and filters</p>
+                    <button class="feature-btn ripple" onclick="document.getElementById('searchInput').focus(); document.getElementById('searchInput').scrollIntoView({behavior: 'smooth'});">Test Search</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">view_carousel</span>
+                    </div>
+                    <h3>🎠 Product Carousel</h3>
+                    <p>Interactive carousel showcasing featured products</p>
+                    <button class="feature-btn ripple" onclick="document.getElementById('productCarousel').scrollIntoView({behavior: 'smooth'});">View Carousel</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">favorite</span>
+                    </div>
+                    <h3>❤️ Wishlist System</h3>
+                    <p>Click the heart icons on products to add/remove from wishlist</p>
+                    <button class="feature-btn ripple" onclick="document.querySelector('.products-grid').scrollIntoView({behavior: 'smooth'});">Try Wishlist</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">shopping_cart</span>
+                    </div>
+                    <h3>🛒 Shopping Cart</h3>
+                    <p>Add products to cart and manage your shopping</p>
+                    <button class="feature-btn ripple" onclick="toggleCart()">Open Cart</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">filter_list</span>
+                    </div>
+                    <h3>🎛️ Smart Filters</h3>
+                    <p>Filter by category, price range, and sort options</p>
+                    <button class="feature-btn ripple" onclick="document.querySelector('.categories').scrollIntoView({behavior: 'smooth'});">Try Filters</button>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <span class="material-icons">compare</span>
+                    </div>
+                    <h3>⚖️ Product Comparison</h3>
+                    <p>Compare multiple products side by side</p>
+                    <button class="feature-btn ripple" onclick="showComparisonModal()">Compare Products</button>
+                </div>
+            </div>
+
+            <div class="demo-stats">
+                <div class="stat-item">
+                    <div class="stat-number">81</div>
+                    <div class="stat-label">Products Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fully Responsive</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Interactive Demo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Advanced Features</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">Our Products</h2>
+
+        <!-- Search and Filters -->
+        <div class="search-filters">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+                <span class="material-icons search-icon">search</span>
+            </div>
+
+            <div class="filter-controls">
+                <select id="sortSelect" onchange="sortProducts()">
+                    <option value="name">Sort by name</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+
+                <div class="price-range">
+                    <input type="range" id="priceRange" min="0" max="300" value="300" oninput="filterByPrice()">
+                    <span id="priceValue">Max price: €300</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active" onclick="filterProducts('all')">All</button>
+            <button class="category-btn" onclick="filterProducts('men')">Men</button>
+            <button class="category-btn" onclick="filterProducts('women')">Women</button>
+            <button class="category-btn" onclick="filterProducts('accessories')">Accessories</button>
+        </div>
+
+        <!-- Featured Products Carousel -->
+        <div class="featured-section">
+            <h3>Featured Products</h3>
+            <div id="productCarousel" class="product-carousel">
+                <!-- Carousel will be loaded here -->
+            </div>
+        </div>
+
+        <!-- All Products Grid -->
+        <div class="products-grid fade-in" id="productsGrid">
+            <!-- Products will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>About This Demo</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>🎨 Modern Material Design E-commerce</h3>
+                    <p>This interactive demo showcases a fully functional e-commerce platform built with modern web technologies. Experience the power of Material Design combined with advanced JavaScript features.</p>
+
+                    <h3>🛠️ Technologies Used</h3>
+                    <div class="tech-list">
+                        <div class="tech-item">
+                            <span class="material-icons">web</span>
+                            <span>HTML5 & CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="material-icons">code</span>
+                            <span>Vanilla JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="material-icons">palette</span>
+                            <span>Material Design</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="material-icons">storage</span>
+                            <span>localStorage API</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="material-icons">http</span>
+                            <span>RESTful Architecture</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="material-icons">devices</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-highlights">
+                    <h3>✨ Key Features</h3>
+                    <ul class="highlights-list">
+                        <li><strong>🔍 Advanced Search:</strong> Real-time product search with filters</li>
+                        <li><strong>🎠 Product Carousel:</strong> Interactive featured products display</li>
+                        <li><strong>❤️ Wishlist System:</strong> Save favorite products for later</li>
+                        <li><strong>🛒 Shopping Cart:</strong> Full cart management functionality</li>
+                        <li><strong>⚖️ Product Comparison:</strong> Compare multiple products side by side</li>
+                        <li><strong>📱 Fully Responsive:</strong> Optimized for all device sizes</li>
+                        <li><strong>🎨 Material Design:</strong> Modern, intuitive user interface</li>
+                        <li><strong>💾 Persistent Data:</strong> Cart and wishlist saved locally</li>
+                    </ul>
+
+                    <div class="demo-actions">
+                        <a href="#features" class="demo-action-btn primary">🚀 Test Features</a>
+                        <a href="demo.html" target="_blank" class="demo-action-btn secondary">📊 Compare Interfaces</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ModernShop</h3>
+                <p>Your online shopping destination for quality products and competitive prices.</p>
+                <div class="social-links">
+                    <a href="#"><span class="material-icons">facebook</span></a>
+                    <a href="#"><span class="material-icons">twitter</span></a>
+                    <a href="#"><span class="material-icons">instagram</span></a>
+                    <a href="#"><span class="material-icons">linkedin</span></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#products">Products</a></p>
+                <p><a href="#about">About</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <p><a href="#">FAQ</a></p>
+                <p><a href="#">Shipping</a></p>
+                <p><a href="#">Returns</a></p>
+                <p><a href="#">Support</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@modernshop.com</p>
+                <p>Phone: +33 1 23 45 67 89</p>
+                <p>Address: 123 Commerce Street, Paris</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <span class="material-icons cart-close" onclick="toggleCart()">close</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p>Your cart is empty</p>
+        </div>
+        <div class="cart-total" id="cartTotal">
+            <p>Total: <strong>$0.00</strong></p>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="auth-system.js"></script>
+    <script src="payment-system.js"></script>
+    <script src="reviews-system.js"></script>
+    <script src="comparison-system.js"></script>
+    <script src="wishlist-final.js"></script>
+    <script src="advanced-search.js"></script>
+    <script src="product-carousel.js"></script>
+    <script src="system-diagnostic.js"></script>
+    <script src="quick-test.js"></script>
+  <script>
+        // Fix deprecated Components object warning
+        if (typeof Components !== 'undefined') {
+            console.log('🧹 Removing deprecated Components object');
+            delete window.Components;
+        }
+
+        // Supprimer les erreurs de source map et autres erreurs non critiques
+        const originalErrorHandler = window.onerror;
+        window.onerror = function(message, source, lineno, colno, error) {
+            // Ignorer les erreurs de source map
+            if (message.includes('Source map') ||
+                message.includes('installHook.js.map') ||
+                message.includes('source-map')) {
+                console.log('🔇 Suppressed source map error:', message.substring(0, 50) + '...');
+                return true; // Prevent error display
+            }
+            // Ignorer les erreurs de favicon
+            if (message.includes('favicon.ico')) {
+                return true;
+            }
+            // Call original error handler if necessary
+            if (originalErrorHandler) {
+                return originalErrorHandler(message, source, lineno, colno, error);
+            }
+        };
+
+        // Simple cache busting system - remove old scripts if necessary
+        document.addEventListener('DOMContentLoaded', function() {
+            // Clean up old wishlist scripts if there are multiple
+            const wishlistScripts = document.querySelectorAll('script[src*="wishlist"]');
+            if (wishlistScripts.length > 1) {
+                console.log('🧹 [SYSTEM] Cleaning up duplicate wishlist scripts');
+                for (let i = 0; i < wishlistScripts.length - 1; i++) {
+                    wishlistScripts[i].remove();
+                }
+            }
+        });
+
+        // Clean up source map errors from DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove potentially problematic source map links
+            const sourceMapLinks = document.querySelectorAll('link[rel="preload"][as="script"]');
+            sourceMapLinks.forEach(link => {
+                if (link.href && link.href.includes('source-map')) {
+                    link.remove();
+                }
+            });
+        });
+
+        // Prevent loading of deprecated Polymer files
+        const originalCreateElement = document.createElement.bind(document);
+        document.createElement = function(tagName) {
+            const element = originalCreateElement(tagName);
+
+            // Block script elements that try to load deprecated Polymer files
+            if (tagName.toLowerCase() === 'script') {
+                const originalSetAttribute = element.setAttribute.bind(element);
+                element.setAttribute = function(name, value) {
+                    if (name === 'src' && (value.includes('src/') || value.includes('polymer'))) {
+                        console.warn('Blocked loading of deprecated Polymer file:', value);
+                        return; // Don't set the src attribute
+                    }
+                    return originalSetAttribute(name, value);
+                };
+            }
+
+            return element;
+        };
+
+        // Remove any existing Polymer-related elements
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔧 Starting cleanup of deprecated Polymer files...');
+
+            // Remove any script tags that might have loaded Polymer files
+            const scripts = document.querySelectorAll('script[src*="src/"], script[src*="polymer"]');
+            scripts.forEach(script => {
+                console.warn('🗑️ Removing deprecated Polymer script:', script.src);
+                script.remove();
+            });
+
+            // Remove Components object if it exists
+            if (typeof Components !== 'undefined') {
+                console.log('🧹 Cleaning up deprecated Components object');
+                delete window.Components;
+            }
+
+            console.log('✅ Cleanup completed');
+
+            // Diagnostic rapide au chargement
+            setTimeout(() => {
+                console.log('🔍 Quick Status Check:');
+                console.log('- DOM Ready:', document.readyState);
+                console.log('- Carousel Container:', document.getElementById('productCarousel') ? '✅ Found' : '❌ Not found');
+                console.log('- Products Grid:', document.getElementById('productsGrid') ? '✅ Found' : '❌ Not found');
+                console.log('- Wishlist System Script:', document.querySelector('script[src*="wishlist-final"]') ? '✅ Found' : '❌ Not found');
+                console.log('- Carousel System Script:', document.querySelector('script[src*="product-carousel"]') ? '✅ Found' : '❌ Not found');
+            }, 500);
+
+            // Full diagnostic after 3 seconds
+            setTimeout(() => {
+                console.log('🔍 Full Diagnostic Report:');
+                console.log('- Final Wishlist System:', typeof window.wishlistSystem !== 'undefined' ? '✅ Loaded' : '❌ Not loaded');
+                console.log('- Product Carousel:', typeof window.productCarousel !== 'undefined' ? '✅ Loaded' : '❌ Not loaded');
+                console.log('- Products in memory:', window.allProducts ? `✅ ${window.allProducts.length} products` : '❌ No products');
+                console.log('- Local products array:', window.products ? `✅ ${window.products.length} products` : '❌ No products');
+
+                // Check product cards
+                const productCards = document.querySelectorAll('.product-card, .carousel-product-card');
+                console.log('- Product Cards Found:', productCards.length);
+
+                // Check wishlist buttons
+                const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+                console.log('- Wishlist Buttons:', wishlistButtons.length);
+
+                // Check carousel
+                const carouselContainer = document.getElementById('productCarousel');
+                const carouselSlides = carouselContainer ? carouselContainer.querySelectorAll('.carousel-slide') : [];
+                console.log('- Carousel Slides:', carouselSlides.length);
+                console.log('- Carousel Visible:', carouselContainer && carouselContainer.offsetHeight > 0 ? '✅ Visible' : '❌ Hidden');
+
+                // Check if events are listened to
+                console.log('- Products Loaded Event:', '✅ Event dispatched by system');
+
+                // Check final wishlist system status
+                if (window.wishlistSystem) {
+                    console.log('- Wishlist items count:', window.wishlistSystem.wishlist.length);
+                    console.log('- Wishlist methods available:', typeof window.wishlistSystem.toggleWishlist);
+                }
+
+                if (productCards.length > 0 && wishlistButtons.length === 0) {
+                    console.warn('⚠️ Product cards found but no wishlist buttons - retrying...');
+                    if (window.wishlistSystem) {
+                        console.log('🔄 Retrying wishlist UI creation...');
+                        window.wishlistSystem.createWishlistUI();
+                    }
+                }
+
+                // Check detailed product status
+                if (window.allProducts && window.allProducts.length > 0) {
+                    console.log('📊 Product details:');
+                    console.log('- First product:', window.allProducts[0]);
+                    console.log('- Product categories:', [...new Set(window.allProducts.map(p => p.category))]);
+                }
+
+                // Check carousel visibility
+                if (carouselContainer) {
+                    const styles = window.getComputedStyle(carouselContainer);
+                    console.log('🎠 Carousel CSS:');
+                    console.log('- Display:', styles.display);
+                    console.log('- Visibility:', styles.visibility);
+                    console.log('- Opacity:', styles.opacity);
+                    console.log('- Height:', styles.height);
+                }
+            }, 3000);
+        });
+
+        // Load real product data from JSON files
+        let products = [];
+        let allProducts = [];
+
+        // Exposer les variables globalement pour les autres scripts
+        window.products = products;
+        window.allProducts = allProducts;
+
+        // Load products from JSON files
+        async function loadProductsFromJSON() {
+            try {
+                const categories = ['ladies_tshirts', 'mens_outerwear', 'mens_tshirts', 'ladies_outerwear'];
+
+                for (const category of categories) {
+                    const response = await fetch(`data/${category}.json`);
+                    const data = await response.json();
+
+                    data.forEach((item, index) => {
+                        allProducts.push({
+                            id: allProducts.length + 1,
+                            name: item.title,
+                            price: item.price,
+                            image: item.image,
+                            largeImage: item.largeImage,
+                            category: category.includes('men') ? 'men' :
+                                       category.includes('women') ? 'women' :
+                                       category.includes('ladies') ? 'women' : 'accessories',
+                            description: item.description.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ')
+                        });
+                    });
+                }
+
+                products = [...allProducts];
+                // Update global references
+                window.products = products;
+                window.allProducts = allProducts;
+                console.log(`📦 JSON products loaded: ${allProducts.length} items`);
+                loadProducts();
+            } catch (error) {
+                console.warn('Erreur de chargement des produits JSON, utilisation des données de secours:', error);
+                // Fallback to sample data
+                loadFallbackProducts();
+            }
+        }
+
+        function loadFallbackProducts() {
+            products = [
+                {
+                    id: 1,
+                    name: "T-shirt Classic Blanc",
+                    price: 29.99,
+                    image: "images/shop-icon-128.png",
+                    category: "men",
+                    description: "T-shirt en coton bio, confortable et durable."
+                },
+                {
+                    id: 2,
+                    name: "Robe d'Été Florale",
+                    price: 49.99,
+                    image: "images/shop-icon-128.png",
+                    category: "women",
+                    description: "Robe légère parfaite pour les journées ensoleillées."
+                },
+                {
+                    id: 3,
+                    name: "Jean Slim Noir",
+                    price: 79.99,
+                    image: "images/shop-icon-128.png",
+                    category: "men",
+                    description: "Jean slim fit en denim de qualité supérieure."
+                },
+                {
+                    id: 4,
+                    name: "Sac à Main Cuir",
+                    price: 89.99,
+                    image: "images/shop-icon-128.png",
+                    category: "accessories",
+                    description: "Sac à main en cuir véritable, élégant et spacieux."
+                },
+                {
+                    id: 5,
+                    name: "Pull Cachemire",
+                    price: 129.99,
+                    image: "images/shop-icon-128.png",
+                    category: "women",
+                    description: "Pull en cachemire doux et chaud pour l'hiver."
+                },
+                {
+                    id: 6,
+                    name: "Montre Classique",
+                    price: 199.99,
+                    image: "images/shop-icon-128.png",
+                    category: "accessories",
+                    description: "Montre automatique avec bracelet en cuir."
+                }
+            ];
+            allProducts = [...products];
+            // Update global references
+            window.products = products;
+            window.allProducts = allProducts;
+            console.log(`📦 Fallback products loaded: ${allProducts.length} items`);
+            loadProducts();
+        }
+
+        let cart = [];
+        let currentFilter = 'all';
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductsFromJSON();
+            updateCartCount();
+        });
+
+        // Load products
+        function loadProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            productsGrid.innerHTML = '';
+
+            const filteredProducts = currentFilter === 'all'
+                ? products
+                : products.filter(product => product.category === currentFilter);
+
+            filteredProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                productsGrid.appendChild(productCard);
+            });
+
+            // Trigger productsLoaded event to notify other systems
+            document.dispatchEvent(new CustomEvent('productsLoaded', {
+                detail: { products: filteredProducts, total: filteredProducts.length }
+            }));
+
+            console.log(`📦 Products loaded: ${filteredProducts.length} items`);
+        }
+
+        // Create product card
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='images/shop-icon-128.png'">
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-price">${product.price.toFixed(2)} €</p>
+                    <p class="product-description">${product.description}</p>
+                    <button class="add-to-cart-btn ripple" onclick="addToCart(${product.id})" data-product-id="${product.id}">
+                        <span class="material-icons">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+                </div>
+            `;
+            return card;
+        }
+
+        // Filter products
+        function filterProducts(category) {
+            currentFilter = category;
+
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            applyFilters();
+        }
+
+        // Search products
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            applyFilters();
+        }
+
+        // Sort products
+        function sortProducts() {
+            const sortBy = document.getElementById('sortSelect').value;
+            applyFilters();
+        }
+
+        // Filter by price
+        function filterByPrice() {
+            const maxPrice = document.getElementById('priceRange').value;
+            document.getElementById('priceValue').textContent = `Prix max: ${maxPrice}€`;
+            applyFilters();
+        }
+
+        // Apply all filters
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const sortBy = document.getElementById('sortSelect').value;
+            const maxPrice = parseFloat(document.getElementById('priceRange').value);
+
+            let filteredProducts = [...allProducts];
+
+            // Category filter
+            if (currentFilter !== 'all') {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.category === currentFilter
+                );
+            }
+
+            // Search filter
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Price filter
+            filteredProducts = filteredProducts.filter(product =>
+                product.price <= maxPrice
+            );
+
+            // Sort
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'newest':
+                    filteredProducts.reverse(); // Simple reverse for demo
+                    break;
+            }
+
+            products = filteredProducts;
+            loadProducts();
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const existingItem = cart.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        ...product,
+                        quantity: 1
+                    });
+                }
+                updateCartCount();
+                updateCartDisplay();
+                showNotification(`${product.name} ajouté au panier!`);
+            }
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Votre panier est vide</p>';
+                cartTotal.innerHTML = '<p>Total: <strong>0.00 €</strong></p><button class="checkout-btn">Commander</button>';
+                return;
+            }
+
+            let itemsHtml = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                itemsHtml += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='images/shop-icon-128.png'">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>${item.price.toFixed(2)} € x ${item.quantity}</p>
+                            <p class="cart-item-price">${itemTotal.toFixed(2)} €</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = itemsHtml;
+            cartTotal.innerHTML = `
+                <p>Total: <strong>${total.toFixed(2)} €</strong></p>
+                <button class="checkout-btn" onclick="checkout()">Commander</button>
+            `;
+        }
+
+        // Toggle cart sidebar
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            cartSidebar.classList.toggle('open');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1002;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = `
+                <span class="material-icons" style="vertical-align: middle; margin-right: 10px;">check_circle</span>
+                ${message}
+            `;
+
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Checkout function
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Votre panier est vide', 'error');
+                return;
+            }
+
+            // Calculer le total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Ouvrir la modal de paiement
+            if (window.paymentSystem) {
+                window.paymentSystem.openPaymentModal(cart, total);
+            } else {
+                alert('Système de paiement non disponible. Veuillez réessayer.');
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+
+            .product-card {
+                animation: fadeInUp 0.6s ease forwards;
+                opacity: 0;
+            }
+
+            .product-card:nth-child(1) { animation-delay: 0.1s; }
+            .product-card:nth-child(2) { animation-delay: 0.2s; }
+            .product-card:nth-child(3) { animation-delay: 0.3s; }
+            .product-card:nth-child(4) { animation-delay: 0.4s; }
+            .product-card:nth-child(5) { animation-delay: 0.5s; }
+            .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ================================================
+        // ENHANCED ANIMATIONS & MICRO-INTERACTIONS
+        // ================================================
+
+        // Enhanced page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading class to body initially
+            document.body.classList.add('page-loading');
+
+            // Remove loading class after content loads
+            setTimeout(() => {
+                document.body.classList.remove('page-loading');
+                document.body.classList.add('page-loaded');
+            }, 100);
+
+            // Enhanced feature cards entrance animations
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Enhanced stats counter animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                if (!isNaN(target)) {
+                    animateCounter(stat, 0, target, 2000);
+                }
+            });
+
+            // Add ripple effect to all buttons
+            const buttons = document.querySelectorAll('.cta-button, .feature-btn, .demo-action-btn, .category-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple element
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-effect';
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.3);
+                        transform: scale(0);
+                        animation: ripple-animation 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    this.appendChild(ripple);
+
+                    // Position ripple
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Enhanced hover effects for navigation
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.feature-card, .stat-item, .about-text, .demo-highlights').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Enhanced search bar interaction
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                    this.parentElement.style.transition = 'transform 0.3s ease';
+                });
+
+                searchInput.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            }
+        });
+
+        // Enhanced counter animation function
+        function animateCounter(element, start, end, duration) {
+            if (start === end) return;
+
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const timer = stepTime < minTimer ? minTimer : stepTime;
+
+            const startTime = new Date().getTime();
+            const endTime = startTime + duration;
+
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+
+                element.innerHTML = value.toLocaleString();
+                if (value == end) {
+                    clearInterval(timer);
+                }
+            }
+
+            const timer_id = setInterval(run, timer);
+            run();
+        }
+
+        // Add dynamic particle generation for enhanced visual appeal
+        function createFloatingParticles() {
+            const particlesContainer = document.querySelector('.particles-container');
+            if (!particlesContainer) return;
+
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'dynamic-particle';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 6 + 2}px;
+                    height: ${Math.random() * 6 + 2}px;
+                    background: rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1});
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: float-particle ${Math.random() * 15 + 20}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 20}s;
+                `;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Call particle creation after DOM load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createFloatingParticles);
+        } else {
+            createFloatingParticles();
+        }
+
+        // Add CSS for ripple effect animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+
+            .animate-in {
+                animation: slideInUp 0.8s ease-out forwards;
+            }
+
+            .page-loading {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.8s ease;
+            }
+
+            .page-loaded {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .dynamic-particle {
+                pointer-events: none;
+            }
+
+            @keyframes float-particle {
+                0%, 100% {
+                    transform: translateY(0px) translateX(0px) scale(1);
+                    opacity: 0.1;
+                }
+                25% {
+                    transform: translateY(-20px) translateX(10px) scale(1.2);
+                    opacity: 0.3;
+                }
+                50% {
+                    transform: translateY(-10px) translateX(-15px) scale(0.8);
+                    opacity: 0.2;
+                }
+                75% {
+                    transform: translateY(-30px) translateX(5px) scale(1.1);
+                    opacity: 0.4;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    </script>
+</body>
+</html>
+
