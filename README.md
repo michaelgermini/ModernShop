@@ -18,8 +18,12 @@
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="./images/shop-screenshot.png" alt="Shop Screenshot" width="800"/>
+  <img src="./images/modernshopdemo.jpg" alt="Modern Shop Demo Screenshot" width="800"/>
   <p><em>Modern Shop - A sample e-commerce Progressive Web App</em></p>
+</div>
+
+<div align="center">
+  <p><em>✨ Experience the full e-commerce demo at <a href="https://michaelgermini.github.io/ModernShop/" target="_blank">Live Demo</a></em></p>
 </div>
 
 ## ✨ Key Features
@@ -246,18 +250,37 @@ npm test                     # Run linting and tests
 
 ## 🌐 Deployment
 
-### GitHub Pages
-The project is configured for GitHub Pages deployment:
+### 🚀 Recommended: Netlify (Easiest)
+The project is optimized for Netlify deployment:
+
+1. **Connect Repository**: Link your GitHub repo to Netlify
+2. **Auto-Deployment**: Deploys automatically on git push
+3. **Build Settings**:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+   - **Node Version**: 18
+4. **Live URL**: `https://your-site-name.netlify.app`
+
+### 🐙 GitHub Pages
+Alternative deployment option:
 
 1. **Automatic Deployment**: Push to `master` branch
 2. **Live URL**: `https://michaelgermini.github.io/ModernShop/`
 3. **CDN**: Assets served via GitHub's CDN
 
-### Other Platforms
-- **Netlify**: Drag & drop deployment
-- **Vercel**: Connect GitHub repository
+### ☁️ Other Platforms
+- **Vercel**: Connect GitHub repository (use `vercel.json`)
 - **Firebase**: Hosting with CDN
 - **App Engine**: Full server deployment
+
+### 📋 Manual Deployment
+```bash
+# Build for any static host
+npm run build
+
+# Deploy the 'dist' directory to your hosting provider
+# All files are ready for static hosting
+```
 
 ## 📊 Performance Metrics
 
