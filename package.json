@@ -8,15 +8,16 @@
   "repository": "Polymer/shop",
   "scripts": {
     "start": "polymer serve",
-    "build": "npm run build:prpl-server && npm run build:static",
+    "build": "node build.js",
     "build:prpl-server": "polymer build --auto-base-path && gulp prpl-server",
     "build:static": "polymer build",
     "serve:prpl-server": "prpl-server --root server/build",
     "serve:static": "polymer serve --port 5000 build/es5-bundled",
     "test": "rm -rf build/ && polymer lint && polymer test",
     "prepare-deploy": "node deploy-vercel.js",
-    "deploy": "npm run prepare-deploy && vercel --prod",
-    "deploy:preview": "npm run prepare-deploy && vercel"
+    "deploy": "npm run build && npm run prepare-deploy && vercel --prod",
+    "deploy:preview": "npm run build && npm run prepare-deploy && vercel",
+    "deploy:netlify": "npm run build && echo 'Ready for Netlify deployment from dist/ directory'"
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
