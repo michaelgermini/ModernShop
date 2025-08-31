@@ -1,0 +1,2 @@
+# Force GitHub Pages to serve all files correctly
+# This file ensures GitHub Pages doesn't ignore files starting with underscore
