@@ -13,7 +13,10 @@
     "build:static": "polymer build",
     "serve:prpl-server": "prpl-server --root server/build",
     "serve:static": "polymer serve --port 5000 build/es5-bundled",
-    "test": "rm -rf build/ && polymer lint && polymer test"
+    "test": "rm -rf build/ && polymer lint && polymer test",
+    "prepare-deploy": "node deploy-vercel.js",
+    "deploy": "npm run prepare-deploy && vercel --prod",
+    "deploy:preview": "npm run prepare-deploy && vercel"
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
