@@ -18,7 +18,7 @@
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="./images/modernshopdemo.jpg" alt="Modern Shop Demo Screenshot" width="800"/>
+  <img src="./images/modernshopdemo.png" alt="Modern Shop Demo Screenshot" width="600" height="400" style="border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.15); object-fit: cover;"/>
   <p><em>Modern Shop - A sample e-commerce Progressive Web App</em></p>
 </div>
 
